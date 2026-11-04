@@ -30,8 +30,8 @@ Dimostratore didattico *Client-Server* sviluppato nell'ambito della Tesi di Laur
 
 | Ruolo | Utente | Password | Permessi |
 | :--- | :--- | :--- | :--- |
-| **Operatore di Sportello** | `puopolo_edda` | `Pompei2026!` | Emissione biglietti e monitoraggio integrità |
-| **Supervisore / Admin** | `supervisore_fs` | `Supervisore2026!` | Emissione biglietti + **Ripristino da Backup** post-attacco |
+| **Operatore di Sportello** | `puopolo_edda` | `@Autunno.2026!` | Emissione biglietti e monitoraggio integrità |
+| **Supervisore / Admin** | `supervisore_fs` | `FsCert2026!` | Emissione biglietti + **Ripristino da Backup** post-attacco |
 
 ---
 
