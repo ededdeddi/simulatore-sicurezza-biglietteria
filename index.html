@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sportello di Biglietteria Stazione di Pompei — Simulatore Didattico</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- BARRA DI STATO SUPERIORE DEL TERMINALE -->
+    <header class="barra-terminale">
+        <div class="titolo-postazione">
+            <h1>SPORTELLO BIGLIETTERIA - STAZIONE DI POMPEI</h1>
+            <span class="sottotitolo">Postazione n° 1 — Emissione Titoli</span>
+        </div>
+
+        <div class="indicatori-stato">
+            <!-- Mostra chi è loggato e con quale Ruolo RBAC (Dispensa 13) -->
+            <span id="info-operatore" class="badge-utente">
+                Operatore: Non autenticato
+            </span>
+
+            <!-- Mostra se la rete aziendale è connessa o isolata (Dispensa 26) -->
+            <span id="badge-rete" class="badge-verde">
+                RETE INTRANET AZIENDALE: OPERATIVA
+            </span>
+        </div>
+    </header>
+
+    <!-- CONTENITORE PRINCIPALE A DUE COLONNE -->
+    <main class="contenitore-principale">
+        <!-- COLONNA SINISTRA: OPERATIVITA' DI BIGLIETTERIA -->
+        <section class="colonna-sportello">
+
+            <!-- RIQUADRO A: AUTENTICAZIONE OPERATORE (Dispense 8, 9, 13) -->
+            <div class="card" id="card-login">
+                <h2>1. Autenticazione Operatore</h2>
+                <div class="riga-form">
+                    <label for="input-username">Utente:</label>
+                    <input type="text" id="input-username" placeholder="es. nome_cognome oppure admin">
+                </div>
+                <div class="riga-form">
+                    <label for="input-password">Password:</label>
+                    <input type="password" id="input-password" placeholder="Inserisci password">
+                </div>
+                <button id="btn-login" class="btn-primario">Accedi alla Postazione</button>
+                <p id="messaggio-login" class="messaggio-stato"></p>
+            </div>
+
+            <!-- RIQUADRO B: EMISSIONE TITOLO DI VIAGGIO (Dispense 20, 21) -->
+            <div class="card" id="card-emissione">
+                <h2>2. Emissione Titolo di Viaggio — Stazione di Pompei</h2>
+
+                <div class="riga-form">
+                    <label for="select-tratta">Seleziona Tratta e Tariffa:</label>
+                    <select id="select-tratta">
+                        <option value="Metropolitano 21304 (Pompei -> Napoli Piazza Garibaldi)">Metropolitano 21304:
+                            Pompei -> Napoli Piazza Garibaldi (€ 3,50)</option>
+                        <option value="Metropolitano 21311 (Pompei -> Salerno)">Metropolitano 21311: Pompei -> Salerno
+                            (€ 3,00)</option>
+                        <option value="Intercity 702 (Salerno -> Aversa)">Intercity 702: Salerno -> Aversa (€ 11,00)
+                        </option>
+                    </select>
+                </div>
+
+                <div class="riga-form">
+                    <label for="input-passeggero">Nominativo Viaggiatore o Cod. CartaFreccia:</label>
+                    <input type="text" id="input-passeggero" placeholder="es. Mario Rossi (oppure test SQL Injection)">
+                </div>
+
+                <button id="btn-emetti" class="btn-primario">Emetti Biglietto (Genera PNR)</button>
+
+                <!-- Qui apparirà il biglietto emesso o l'errore di sicurezza -->
+                <div id="box-biglietto-emesso" class="box-risultato">
+                    Nessun titolo emesso nella sessione corrente.
+                </div>
+            </div>
+
+        </section>
+        <!-- COLONNA DESTRA: PRESIDIO CYBERSECURITY (HIDS) E PROCEDURA OPERATIVA -->
+        <section class="colonna-sicurezza">
+
+            <!-- RIQUADRO C: CONTROLLO INTEGRITA' SHA-256 E SIMULAZIONE RANSOMWARE (Dispense 5, 13, 14, 18) -->
+            <div class="card" id="card-hids">
+                <h2>3. Sentinella Integrità File (SHA-256) &amp; HIDS Locale</h2>
+                <p class="testo-info">
+                    File monitorato sul disco: <strong>tariffario_pompei.json</strong>
+                </p>
+                <div class="box-hash">
+                    <div><strong>Hash SHA-256 Originale:</strong> <code id="hash-ufficiale">In attesa...</code></div>
+                    <div><strong>Hash SHA-256 Attuale:</strong> <code id="hash-attuale">In attesa...</code></div>
+                    <div><strong>Esito Controllo:</strong> <span id="stato-integrita">Verifica in corso...</span></div>
+                </div>
+
+                <div class="gruppo-bottoni">
+                    <button id="btn-simula-ransomware" class="btn-pericolo">
+                        Simula Attacco Ransomware (Cifra File)
+                    </button>
+                    <button id="btn-ripristina-backup" class="btn-secondario">
+                        Ripristina da Backup (Consentito solo da Amministratore)
+                    </button>
+                </div>
+            </div>
+
+            <!-- RIQUADRO D: REGISTRO EVENTI SEMPRE VISIBILE + GUIDA OPERATIVA SOLO IN CASO DI ATTACCO -->
+            <div class="card" id="card-emergenza">
+                <h2>4. Registro Eventi di Sicurezza (HIDS / OS Log)</h2>
+
+                <!-- La Guida Operativa compare SOLO quando scatta l'allarme -->
+                <div id="box-protocollo-15min" class="allerta-nascosta">
+                    <h3>GUIDA OPERATIVA PER LO SPORTELLO — COSA FARE NEI PRIMI 15 MINUTI</h3>
+                    <ol>
+                        <li><strong>Non riavviare il PC:</strong> l'isolamento della rete Intranet è già attivo in
+                            automatico per impedire il contagio ad altre stazioni.</li>
+                        <li><strong>Sospendere l'emissione locale:</strong> il file tariffario della Postazione n° 1 di
+                            Pompei risulta cifrato/alterato.</li>
+                        <li><strong>Continuità al viaggiatore:</strong> indirizzare i clienti verso <em>App
+                                Trenitalia</em> o <em>sito web</em> (attivi su rete pubblica HTTPS) o autorizzare
+                            l'accesso al treno avvisando il personale di bordo.</li>
+                        <li><strong>Segnalazione:</strong> contattare il presidio di sicurezza comunicando il codice
+                            postazione <code>POMPEI_SPORTELLO_01</code>.</li>
+                    </ol>
+                </div>
+
+                <pre id="console-log" class="box-log">[SISTEMA] In attesa di connessione al modulo di sicurezza...</pre>
+            </div>
+
+        </section>
+    </main>
+    <script src="app.js"></script>
+</body>
+
+</html>

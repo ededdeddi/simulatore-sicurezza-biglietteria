@@ -1,0 +1,22 @@
+{
+    "stazione": "Pompei",
+    "postazione": "POMPEI_SPORTELLO_01",
+    "stato_file": "INTEGRO",
+    "tratte": [
+        {
+            "codice": "MET-21304",
+            "descrizione": "Metropolitano 21304: Pompei -> Napoli Piazza Garibaldi",
+            "prezzo_eur": 3.50
+        },
+        {
+            "codice": "MET-21311",
+            "descrizione": "Metropolitano 21311: Pompei -> Salerno",
+            "prezzo_eur": 3.00
+        },
+        {
+            "codice": "IC-702",
+            "descrizione": "Intercity 702: Salerno -> Aversa",
+            "prezzo_eur": 11.00
+        }
+    ]
+}
