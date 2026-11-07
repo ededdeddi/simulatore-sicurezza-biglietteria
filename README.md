@@ -65,4 +65,4 @@ Apri il browser all'indirizzo: **[http://localhost:8000](http://localhost:8000)*
 
 ## 👩‍💻 Autrice
 **Edda Mariafrancesca Puopolo**  
-*Corso di Laurea in Ingegneria Informatica (Indirizzo Sicurezza Informatica)*
+*Corso di Laurea in Ingegneria Informatica*
