@@ -1,6 +1,6 @@
 # 🚆 Simulatore di Sicurezza per Sportello di Biglietteria Ferroviaria (Stazione di Pompei)
 
-Dimostratore didattico *Client-Server* sviluppato nell'ambito della Tesi di Laurea in **Ingegneria Informatica (Indirizzo Sicurezza Informatica)** per simulare i meccanismi di prevenzione, rilevamento (*Host-based Intrusion Detection*) e risposta a un attacco **Crypto-Ransomware** su una postazione fisica di biglietteria ferroviaria.
+Dimostratore didattico *Client-Server* sviluppato nell'ambito della Tesi di Laurea in **Ingegneria Informatica** per simulare i meccanismi di prevenzione, rilevamento (*Host-based Intrusion Detection*) e risposta a un attacco **Crypto-Ransomware** su una postazione fisica di biglietteria ferroviaria.
 
 > **Nota metodologica e Disclaimer:**  
 > Questo progetto è un simulatore didattico indipendente realizzato a scopo esclusivamente accademico e dimostrativo. Utilizza unicamente dati sintetici, tratte e tariffe pubbliche e librerie standard del linguaggio Python (`hashlib`, `sqlite3`, `http.server`), senza riprodurre né interagire con alcun software proprietario o infrastruttura reale.
